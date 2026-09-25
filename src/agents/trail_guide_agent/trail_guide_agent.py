@@ -15,7 +15,7 @@ with open(prompt_file, 'r') as f:
 
 project_client = AIProjectClient(
     endpoint=os.environ["AZURE_AI_PROJECT_ENDPOINT"],
-    credential=DefaultAzureCredential(),
+    credential=DefaultAzureCredential(exclude_managed_identity = True),
 )
 
 agent = project_client.agents.create_version(
